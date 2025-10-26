@@ -7,6 +7,16 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-Latest-red)](https://streamlit.io/)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
+## 🚀 Live Demo
+
+**[Try the Live App →](https://jira-ai-agent-frontend.onrender.com)**
+
+*Backend API: [https://jira-ai-agent-backend.onrender.com](https://jira-ai-agent-backend.onrender.com)*
+
+> **Note**: The app may take 30-60 seconds to wake up on first request (free tier limitation).
+
+---
+
 ## 🌟 Overview
 
 In the fast-paced world of technical support, repetitive issues consume valuable time for developers and support engineers. **JIRA AI Agent** solves this problem by leveraging historical data to efficiently resolve queries, enabling teams to focus on critical and high-priority tasks.
