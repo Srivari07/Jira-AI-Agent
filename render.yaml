@@ -1,0 +1,40 @@
+services:
+  # Backend API Service
+  - type: web
+    name: jira-ai-agent-backend
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: "pip install --upgrade pip && pip install -e ."
+    startCommand: "python src/backend/api.py"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: JIRA_URL
+        sync: false
+      - key: JIRA_EMAIL
+        sync: false
+      - key: JIRA_API_TOKEN
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: FLASK_HOST
+        value: 0.0.0.0
+      - key: FLASK_PORT
+        value: 10000
+      - key: FLASK_DEBUG
+        value: False
+
+  # Frontend Streamlit Service
+  - type: web
+    name: jira-ai-agent-frontend
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: "pip install --upgrade pip && pip install -e ."
+    startCommand: "streamlit run src/frontend/app.py --server.port=10000 --server.address=0.0.0.0 --server.headless=true"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: API_URL
+        value: https://jira-ai-agent-backend.onrender.com
