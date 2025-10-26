@@ -7,7 +7,8 @@ from typing import List, Dict, Any, Optional
 import os
 from langchain_groq import ChatGroq
 from langchain_core.prompts import PromptTemplate
-from langchain_community.embeddings import HuggingFaceEmbeddings
+# Remove HuggingFaceEmbeddings to save memory
+# from langchain_community.embeddings import HuggingFaceEmbeddings
 from pydantic import SecretStr
 from dotenv import load_dotenv
 import yaml
@@ -33,10 +34,9 @@ class JiraLLMAgent:
         with open(config_path, 'r') as f:
             self.config = yaml.safe_load(f)
         
-        # Initialize embeddings for similarity matching
-        self.embeddings = HuggingFaceEmbeddings(
-            model_name="sentence-transformers/all-MiniLM-L6-v2"
-        )
+        # Skip embeddings initialization to save memory (512MB limit on Render)
+        # Use LLM-based matching instead
+        self.embeddings = None
         
         self._setup_prompts()
     

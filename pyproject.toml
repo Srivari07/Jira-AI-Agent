@@ -21,7 +21,8 @@ dependencies = [
     "python-dateutil>=2.8.2",
     "pydantic>=2.5.0",
     "pyyaml>=6.0.1",
-    "sentence-transformers>=2.2.0",
+    # Removed sentence-transformers to reduce memory usage for Render free tier (512MB limit)
+    # Using LLM-based matching instead
 ]
 
 [project.optional-dependencies]
